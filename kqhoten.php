@@ -7,27 +7,31 @@
 
 <body>
 <?php
-$a=$_POST["hoten"];
-//chuyển hết về chữ thường
-$a=strtolower($a);
-trim($a);
-$b=str_split($a,1);
-//viêt hoa chữ cái đầu tiên
-$b[0]=strtoupper($b[0]);
-// xóa có 2 khoảng trống
-for ($i=0;$i<strlen($a);$i++)
-  if ($b[$i]==" " && ($b[$i+1]==" ")) $b[$i+1]="";
-// cập nhật lại mảng b
+ $a=$_POST["hoten"];
+ //chuyển hết về chữ thường
+ $a=strtolower($a);
+ //cắt dấu cách ở đầu cuối chuỗi
+ trim($a);
+ //chuyển thành dạng mảng
+ $b=str_split($a,1);
+ //viêt hoa chữ cái đầu tiên
+ $b[0]=strtoupper($b[0]);
+ // xóa bớt  khoảng trống liền nhau
+ for ($i=0;$i<strlen($a);$i++)
+   if ($b[$i]==" " && ($b[$i+1]==" ")) $b[$i+1]="";
+ // cập nhật lại mảng b
   $a=implode("",$b);
   $b=str_split($a,1);
-// viết hoa chữ đứng đầu
-for ($i=0;$i<strlen($a);$i++)
+ // viết hoa chữ đứng đầu
+ for ($i=0;$i<strlen($a);$i++)
 	if ($b[$i]==" ")
 		$b[$i+1]=strtoupper($b[$i+1]);
-//chuyển từ chuỗi sang mảng
-$a=implode("",$b);
-$a=mb_convert_case($a, MB_CASE_TITLE, "UTF-8");
-echo  "Chào bạn:".$a;
+ //chuyển từ chuỗi sang mảng
+ $a=implode("",$b);
+ //cái này bị lỗi font k biết phải làm thế nào, đầnh làm kiểu này của Trang sóc
+ $a=mb_convert_case($a, MB_CASE_TITLE, "UTF-8");
+ //in ra
+ echo  "Chào bạn:".$a;
 ?>
 </body>
 </html>

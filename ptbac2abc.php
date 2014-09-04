@@ -6,13 +6,19 @@
 </head>
 
 <body>
-<form action="kq.php" method="post">
-GIẢI PHƯƠNG TRÌNH BẬC 2 DẠNG <img height="22" width="90" src="ptbac2.png" /> <br />
+ <form action="kq.php" method="post">
+ <center>
+ <table frame="box">
+ <tr><td>
+ GIẢI PHƯƠNG TRÌNH BẬC 2 DẠNG <img height="22" width="90" src="ptbac2.png" /> <br />
  Nhập a,b,c: <br />
   a=<input type="text" name="a" /><br />
   b=<input type="text" name="b" /><br />
   c=<input type="text" name="c" /><br />
  <input type="submit" value="Giải" />
+ </center>
+ </td></tr>
+ </table>
 </form>
 </body>
 </html>
